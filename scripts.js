@@ -49,3 +49,26 @@ const readFileContent = (file) => {
         leitor.readAsDataURL(file)
     });
 }
+
+const inputTags = document.getElementById('categoria');
+const tagsList = document.getElementById('lista-tags')
+
+inputTags.addEventListener('keypress', (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        const tagText = inputTags.value.trim();
+        if (tagText !== "") {
+            const newTag = document.createElement('li');
+            newTag.innerHTML = `<p>${tagText}</p> <img src="./img/close-black.svg" class="remove-tag"/>`
+            tagsList.appendChild(newTag);
+            inputTags.value = "";
+        }
+    }
+})
+
+tagsList.addEventListener('click', (e) => {
+    if (e.target.classList.contains("remove-tag")) {
+        const toRemoveTag = e.target.parentElement;
+        tagsList.removeChild(toRemoveTag);
+    }
+})

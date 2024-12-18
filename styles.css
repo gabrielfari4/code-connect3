@@ -116,10 +116,23 @@ textarea {
     gap: 10px;
     padding: 4px 8px;
     border-radius: 4px;
+    margin-top: 3px;
+    margin-right: 5px;
+    position: relative;
 }
 
 .lista-tags {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.lista-tags li img {
+    height: 15px;
+    width: 15px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
 }
 
 .container-botoes {
